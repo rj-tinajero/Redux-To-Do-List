@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/Redux-To-Do-List/static/css/main.6dfcd059.chunk.css",
-    "main.js": "/Redux-To-Do-List/static/js/main.02e435d1.chunk.js",
-    "main.js.map": "/Redux-To-Do-List/static/js/main.02e435d1.chunk.js.map",
+    "main.js": "/Redux-To-Do-List/static/js/main.b8575f85.chunk.js",
+    "main.js.map": "/Redux-To-Do-List/static/js/main.b8575f85.chunk.js.map",
     "runtime-main.js": "/Redux-To-Do-List/static/js/runtime-main.86dd297a.js",
     "runtime-main.js.map": "/Redux-To-Do-List/static/js/runtime-main.86dd297a.js.map",
-    "static/js/2.5d5fb558.chunk.js": "/Redux-To-Do-List/static/js/2.5d5fb558.chunk.js",
-    "static/js/2.5d5fb558.chunk.js.map": "/Redux-To-Do-List/static/js/2.5d5fb558.chunk.js.map",
+    "static/js/2.f64da553.chunk.js": "/Redux-To-Do-List/static/js/2.f64da553.chunk.js",
+    "static/js/2.f64da553.chunk.js.map": "/Redux-To-Do-List/static/js/2.f64da553.chunk.js.map",
     "index.html": "/Redux-To-Do-List/index.html",
-    "precache-manifest.c60faee9482f5b80ff3e24bed9ec9b4b.js": "/Redux-To-Do-List/precache-manifest.c60faee9482f5b80ff3e24bed9ec9b4b.js",
+    "precache-manifest.47a7862959ce6ed284a095a859ed20b8.js": "/Redux-To-Do-List/precache-manifest.47a7862959ce6ed284a095a859ed20b8.js",
     "service-worker.js": "/Redux-To-Do-List/service-worker.js",
     "static/css/main.6dfcd059.chunk.css.map": "/Redux-To-Do-List/static/css/main.6dfcd059.chunk.css.map",
-    "static/js/2.5d5fb558.chunk.js.LICENSE.txt": "/Redux-To-Do-List/static/js/2.5d5fb558.chunk.js.LICENSE.txt"
+    "static/js/2.f64da553.chunk.js.LICENSE.txt": "/Redux-To-Do-List/static/js/2.f64da553.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.86dd297a.js",
-    "static/js/2.5d5fb558.chunk.js",
+    "static/js/2.f64da553.chunk.js",
     "static/css/main.6dfcd059.chunk.css",
-    "static/js/main.02e435d1.chunk.js"
+    "static/js/main.b8575f85.chunk.js"
   ]
 }
