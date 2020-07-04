@@ -3,13 +3,13 @@ import {createStore} from 'redux'
 // action creator functions 
 export function addTodo(item) {
    return {
-      type: "ADD_TO_LIST",
+      type: "ADD_TASK",
       payload: item
    }
 }
 export function changeTodoStatus(item) {
    return {
-      type: "STATUS_CHANGE",
+      type: "COMPLETE",
       payload: item
    }
 }
@@ -20,7 +20,6 @@ export function deleteFromList(item) {
    }
 }
 
-
 const initialState = {
    todos: [
       {
@@ -28,17 +27,15 @@ const initialState = {
          complete: false
       },
       {
-         task: "Get Lauren Bday gift",
+         task: "plan the special day",
          complete: false
       }, 
    ]
 }
 
 function reducer(state = initialState, action) {
-   //eventually need switch statements for various action types
-   // cases "ADD_TO_LIST" "STATUS_CHANGE" "DELETE"
    switch(action.type) {
-      case "ADD_TO_LIST":
+      case "ADD_TASK":
          return {
             ...state,
              todos: [
@@ -48,6 +45,25 @@ function reducer(state = initialState, action) {
                   complete: false
                }
          ]}
+      case "DELETE":
+         return {
+            ...state,
+            todos: [ 
+               ...state.todos.filter(obj => obj !== action.payload)
+            ]
+         }
+         // Still working on this
+      // case "COMPLETE":
+      //    let arr = [...state.todos]
+      //    let newArr = arr.find(obj => obj === action.payload).complete = true
+      //    console.log(newArr, "NEW ARR")
+      //    return {
+      //       ...state,
+      //       todos: [
+      //          ...state.todos,
+      //          state.todos.find(obj => obj === action.payload).complete = true,
+      //       ]
+      //    }
       default:
          return state
    }
