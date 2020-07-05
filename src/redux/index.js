@@ -22,14 +22,14 @@ export function deleteFromList(item) {
 
 const initialState = {
    todos: [
-      {
-         task: "Clean for 10 minutes",
-         complete: false
-      },
-      {
-         task: "plan the special day",
-         complete: false
-      }, 
+      // {
+      //    task: "Clean for 10 minutes",
+      //    complete: false
+      // },
+      // {
+      //    task: "plan the special day",
+      //    complete: false
+      // }, 
    ]
 }
 
@@ -52,23 +52,30 @@ function reducer(state = initialState, action) {
                ...state.todos.filter(obj => obj !== action.payload)
             ]
          }
-         // Still working on this
-      // case "COMPLETE":
-      //    let arr = [...state.todos]
-      //    let newArr = arr.find(obj => obj === action.payload).complete = true
-      //    console.log(newArr, "NEW ARR")
-      //    return {
-      //       ...state,
-      //       todos: [
-      //          ...state.todos,
-      //          state.todos.find(obj => obj === action.payload).complete = true,
-      //       ]
-      //    }
+      case "COMPLETE":
+         let arr = [...state.todos]
+         for(let i = 0; i < arr.length; i++) {
+            if(arr[i] === action.payload) {
+               arr[i].complete = !arr[i].complete 
+               console.log(arr, "Changed?")
+               break
+            }
+         }
+         return {
+            ...state,
+            todos: [...arr]
+         }
       default:
          return state
    }
 }
 
-const store = createStore(reducer)
-store.subscribe(() => console.log(store.getState(), "store subscribe"))
+const persistedState = localStorage.getItem('reduxState') 
+                       ? JSON.parse(localStorage.getItem('reduxState'))
+                       : initialState
+
+const store = createStore(reducer, persistedState)
+store.subscribe(() => {
+   localStorage.setItem('reduxState', JSON.stringify(store.getState()))
+})
 export default store
