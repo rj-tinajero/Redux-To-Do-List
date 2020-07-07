@@ -5,13 +5,32 @@ import './App.css';
 
 function App(props){
   const [text, setText] = useState("")
-  console.log(window.localStorage, "PERSIST!!!!!!!")
-  const handleChange = (e) => {
+  const [filter, setFilter] = useState("ALL")
+
+  console.log(props.todos, "ehhhhhh")
+
+  const viewAll = (e) => {
+    e.preventDefault()
+    setFilter("ALL")
+  }
+
+  const viewActive = (e) => {
+    e.preventDefault()
+    setFilter("ACTIVE")
+  }
+
+  const viewComplete = (e) => {
+    e.preventDefault()
+    setFilter("COMPLETE")
+  }
+
+  const handleSubmit = (e) => {
     setText(e.target.value)
     console.log(text, "<<<<<<<<<")
   }
 
-  const submit = (text) => {
+  const submit = (e) => {
+    e.preventDefault()
     props.addTodo(text)
     setText("")
   }
@@ -22,28 +41,57 @@ function App(props){
       <ul>
         {props.todos.length < 1 ? <div><p>Add some tasks below!! :D</p></div> : 
           props.todos.map((item, index) => 
-            <div key={index}>
-              {item.complete ? 
-                <i onClick={() => props.changeTodoStatus(item)} className="far fa-check-square status-icon"></i> : 
-                <i onClick={() => props.changeTodoStatus(item)} className="far fa-square status-icon"></i>}
-              <li>{item.task}</li>
-              <i 
-                onClick={() => props.deleteFromList(item)} 
-                className="delete far fa-times-circle" 
-                
-              ></i>
-            </div>
+            {
+              switch(filter) {
+                case "ALL": return (
+                  <div key={index}>
+                    {item.complete ? 
+                      <i onClick={() => props.changeTodoStatus(item)} className="far fa-check-square status-icon"></i> : 
+                      <i onClick={() => props.changeTodoStatus(item)} className="far fa-square status-icon"></i>}
+                    <li>{item.task}</li>
+                    <i 
+                      onClick={() => props.deleteFromList(item)} 
+                      className="delete far fa-times-circle" 
+                    
+                    ></i>
+                  </div> )
+                case "ACTIVE": return (
+                  !item.complete ? 
+                    <div key={index}>
+                      <i onClick={() => props.changeTodoStatus(item)} className="far fa-square status-icon"></i>
+                      <li>{item.task}</li>
+                      <i 
+                        onClick={() => props.deleteFromList(item)} 
+                        className="delete far fa-times-circle" 
+                      
+                      ></i>
+                    </div> : null )
+                case "COMPLETE": return (
+                  item.complete ?
+                    <div key={index}>
+                      <i onClick={() => props.changeTodoStatus(item)} className="far fa-check-square status-icon"></i> 
+                      <li>{item.task}</li>
+                      <i 
+                        onClick={() => props.deleteFromList(item)} 
+                        className="delete far fa-times-circle" 
+                      
+                      ></i>
+                    </div> : null )
+              }
+            }
         )}
-      
       </ul>
       
-      <input type="text" placeholder="Enter task here" onChange={handleChange} value={text} />
-      <button onClick={() => submit(text)}>Add Task</button>
+      <form onSubmit={submit}>
+        <input type="text" placeholder="Enter task here" onChange={handleSubmit} value={text} />
+        <button type="submit">Add Task</button>
+      </form>
+      
 
       <footer className="">
-        <p>All</p>
-        <p>Active</p>
-        <p>Completed</p>
+        <p onClick={viewAll}>All</p>
+        <p onClick={viewActive}>Active</p>
+        <p onClick={viewComplete}>Completed</p>
       </footer>
 
     </div>

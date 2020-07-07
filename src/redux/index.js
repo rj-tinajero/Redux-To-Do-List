@@ -57,7 +57,6 @@ function reducer(state = initialState, action) {
          for(let i = 0; i < arr.length; i++) {
             if(arr[i] === action.payload) {
                arr[i].complete = !arr[i].complete 
-               console.log(arr, "Changed?")
                break
             }
          }
