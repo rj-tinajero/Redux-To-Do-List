@@ -1,13 +1,12 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux'
-import {addTodo, changeTodoStatus, deleteFromList} from './redux'
+import {addTodo, changeTodoStatus, deleteFromList} from './redux/actions'
 import './App.css';
+import plus from './assets/Ellipse 1.svg'
 
 function App(props){
   const [text, setText] = useState("")
   const [filter, setFilter] = useState("ALL")
-
-  console.log(props.todos, "ehhhhhh")
 
   const viewAll = (e) => {
     e.preventDefault()
@@ -26,7 +25,6 @@ function App(props){
 
   const handleSubmit = (e) => {
     setText(e.target.value)
-    console.log(text, "<<<<<<<<<")
   }
 
   const submit = (e) => {
@@ -37,7 +35,7 @@ function App(props){
 
   return(
     <div className="App-header">
-      <h1>Redux To-Do List</h1>
+      <h1 className="title">Tasks</h1>
       <ul>
         {props.todos.length < 1 ? <div><p>Add some tasks below!! :D</p></div> : 
           props.todos.map((item, index) => 
@@ -46,34 +44,34 @@ function App(props){
                 case "ALL": return (
                   <div key={index}>
                     {item.complete ? 
-                      <i onClick={() => props.changeTodoStatus(item)} className="far fa-check-square status-icon"></i> : 
-                      <i onClick={() => props.changeTodoStatus(item)} className="far fa-square status-icon"></i>}
+                      <i onClick={() => props.changeTodoStatus(item)} className="far fa-check-circle status-icon"></i> : 
+                      <i onClick={() => props.changeTodoStatus(item)} className="far fa-circle status-icon"></i>}
                     <li>{item.task}</li>
                     <i 
                       onClick={() => props.deleteFromList(item)} 
-                      className="delete far fa-times-circle" 
+                      className="delete far fa-trash-alt" 
                     
                     ></i>
                   </div> )
                 case "ACTIVE": return (
                   !item.complete ? 
                     <div key={index}>
-                      <i onClick={() => props.changeTodoStatus(item)} className="far fa-square status-icon"></i>
+                      <i onClick={() => props.changeTodoStatus(item)} className="far fa-circle status-icon"></i>
                       <li>{item.task}</li>
                       <i 
                         onClick={() => props.deleteFromList(item)} 
-                        className="delete far fa-times-circle" 
+                        className="delete far fa-trash-alt" 
                       
                       ></i>
                     </div> : null )
                 case "COMPLETE": return (
                   item.complete ?
                     <div key={index}>
-                      <i onClick={() => props.changeTodoStatus(item)} className="far fa-check-square status-icon"></i> 
+                      <i onClick={() => props.changeTodoStatus(item)} className="far fa-check-circle status-icon"></i> 
                       <li>{item.task}</li>
                       <i 
                         onClick={() => props.deleteFromList(item)} 
-                        className="delete far fa-times-circle" 
+                        className="delete far fa-trash-alt" 
                       
                       ></i>
                     </div> : null )
@@ -84,15 +82,27 @@ function App(props){
       
       <form onSubmit={submit}>
         <input type="text" placeholder="Enter task here" onChange={handleSubmit} value={text} />
-        <button type="submit">Add Task</button>
+        <button type="submit"><i class="fas fa-file-medical"></i></button>
       </form>
       
-
-      <footer className="">
-        <p onClick={viewAll}>All</p>
-        <p onClick={viewActive}>Active</p>
-        <p onClick={viewComplete}>Completed</p>
-      </footer>
+{/* maybe use filter state as a way to check which color the filter tabs should be */}
+      <div className="container fixed-bottom">
+        <div className="row">
+          <div className="col text-center my-auto">
+            <p onClick={viewAll}>All</p>
+          </div>
+          <div className="col text-center my-auto">
+            <p onClick={viewActive}>Active</p>  
+          </div>
+          <div className="col text-center my-auto">
+            <p onClick={viewComplete}>Completed</p>
+          </div>
+          <div className="col text-center">
+            <img src={plus} />
+          </div>
+        </div>
+        
+      </div>
 
     </div>
   )
