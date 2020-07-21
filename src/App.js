@@ -37,22 +37,36 @@ function App(props){
     <div className="App-header">
       <h1 className="title">Tasks</h1>
       <ul>
+        <div className="container">
         {props.todos.length < 1 ? <div><p>Add some tasks below!! :D</p></div> : 
           props.todos.map((item, index) => 
             {
               switch(filter) {
                 case "ALL": return (
-                  <div key={index}>
-                    {item.complete ? 
-                      <i onClick={() => props.changeTodoStatus(item)} className="far fa-check-circle status-icon"></i> : 
-                      <i onClick={() => props.changeTodoStatus(item)} className="far fa-circle status-icon"></i>}
-                    <li>{item.task}</li>
-                    <i 
-                      onClick={() => props.deleteFromList(item)} 
-                      className="delete far fa-trash-alt" 
+                  <li className="row" key={index}>
+                    <div className="col d-flex justify-content-end">
+                      {item.complete ? 
+                        <i 
+                          onClick={() => props.changeTodoStatus(item)} 
+                          className="far fa-check-circle status-icon-done"></i> : 
+                        <i 
+                          onClick={() => props.changeTodoStatus(item)} 
+                          className="far fa-circle status-icon"></i>}
+                    </div>
+
+                    <div className="col-7">
+                      {item.complete ? <p className="done-task">{item.task}</p> : <p>{item.task}</p>}
+                    </div>
                     
-                    ></i>
-                  </div> )
+                    <div className="col">
+                      <i 
+                        onClick={() => props.deleteFromList(item)} 
+                        className="delete far fa-trash-alt" 
+                      
+                      ></i>
+                    </div>
+                    
+                  </li> )
                 case "ACTIVE": return (
                   !item.complete ? 
                     <div key={index}>
@@ -67,7 +81,7 @@ function App(props){
                 case "COMPLETE": return (
                   item.complete ?
                     <div key={index}>
-                      <i onClick={() => props.changeTodoStatus(item)} className="far fa-check-circle status-icon"></i> 
+                      <i onClick={() => props.changeTodoStatus(item)} className="far fa-check-circle status-icon-done"></i> 
                       <li>{item.task}</li>
                       <i 
                         onClick={() => props.deleteFromList(item)} 
@@ -78,24 +92,39 @@ function App(props){
               }
             }
         )}
+        {/* have another li element be the disappearing input box, depending on plus button being pressed */}
+          <li className="row hover-and-input" key={props.todos.length + 2}>
+            <div className="col d-flex justify-content-end">
+              <i className="far fa-circle status-icon"></i>
+            </div>
+            <div className="col-7">
+              <form onSubmit={submit}>
+                <input className="input" type="text" placeholder="Enter task" onChange={handleSubmit} value={text} />
+                <button className="submit" type="submit"><i className="fas fa-file-medical"></i></button>
+              </form>
+            </div>
+            <div className="col"></div>
+          </li>
+        </div>
+        
       </ul>
       
-      <form onSubmit={submit}>
-        <input type="text" placeholder="Enter task here" onChange={handleSubmit} value={text} />
-        <button type="submit"><i class="fas fa-file-medical"></i></button>
-      </form>
+      {/* <form onSubmit={submit}>
+        <input className="input" type="text" placeholder="Enter task" onChange={handleSubmit} value={text} />
+        <button type="submit"><i className="fas fa-file-medical"></i></button>
+      </form> */}
       
 {/* maybe use filter state as a way to check which color the filter tabs should be */}
-      <div className="container fixed-bottom">
+      <div className="container fixed-bottom footer">
         <div className="row">
           <div className="col text-center my-auto">
-            <p onClick={viewAll}>All</p>
+            <p className="filter-title" onClick={viewAll}>All</p>
           </div>
           <div className="col text-center my-auto">
-            <p onClick={viewActive}>Active</p>  
+            <p className="filter-title" onClick={viewActive}>Active</p>  
           </div>
           <div className="col text-center my-auto">
-            <p onClick={viewComplete}>Completed</p>
+            <p className="filter-title" onClick={viewComplete}>Completed</p>
           </div>
           <div className="col text-center">
             <img src={plus} />
