@@ -3,10 +3,13 @@ import {connect} from 'react-redux'
 import {addTodo, changeTodoStatus, deleteFromList} from './redux/actions'
 import './App.css';
 import plus from './assets/Ellipse 1.svg'
+import disabled from './assets/Ellipse 2.svg'
+import Todo from './components/Todo'
 
 function App(props){
   const [text, setText] = useState("")
   const [filter, setFilter] = useState("ALL")
+  const [toggleInput, setToggleInput] = useState(false)
 
   const viewAll = (e) => {
     e.preventDefault()
@@ -31,103 +34,90 @@ function App(props){
     e.preventDefault()
     props.addTodo(text)
     setText("")
+    setToggleInput(false)
+  }
+
+  const styleAll = () => {
+    if(filter === "ALL") {
+      return <p className="filter-title-clicked" onClick={viewAll}>All</p>  
+    } else {
+      return <p className="filter-title" onClick={viewAll}>All</p>  
+    }
+  }
+
+  const styleAct = () => {
+    if(filter === "ACTIVE") {
+      return <p className="filter-title-clicked" onClick={viewActive}>Active</p>  
+    } else {
+      return <p className="filter-title" onClick={viewActive}>Active</p>  
+    }
+  }
+
+  const styleComplete = () => {
+    if(filter === "COMPLETE") {
+      return <p className="filter-title-clicked" onClick={viewComplete}>Completed</p>  
+    } else {
+      return <p className="filter-title" onClick={viewComplete}>Completed</p>  
+    }
   }
 
   return(
     <div className="App-header">
       <h1 className="title">Tasks</h1>
       <ul>
-        <div className="container">
+        <div className="container list">
         {props.todos.length < 1 ? <div><p>Add some tasks below!! :D</p></div> : 
           props.todos.map((item, index) => 
             {
               switch(filter) {
                 case "ALL": return (
-                  <li className="row" key={index}>
-                    <div className="col d-flex justify-content-end">
-                      {item.complete ? 
-                        <i 
-                          onClick={() => props.changeTodoStatus(item)} 
-                          className="far fa-check-circle status-icon-done"></i> : 
-                        <i 
-                          onClick={() => props.changeTodoStatus(item)} 
-                          className="far fa-circle status-icon"></i>}
-                    </div>
-
-                    <div className="col-7">
-                      {item.complete ? <p className="done-task">{item.task}</p> : <p>{item.task}</p>}
-                    </div>
-                    
-                    <div className="col">
-                      <i 
-                        onClick={() => props.deleteFromList(item)} 
-                        className="delete far fa-trash-alt" 
-                      
-                      ></i>
-                    </div>
-                    
-                  </li> )
+                  <Todo item={item} index={index}/>
+                )
                 case "ACTIVE": return (
-                  !item.complete ? 
-                    <div key={index}>
-                      <i onClick={() => props.changeTodoStatus(item)} className="far fa-circle status-icon"></i>
-                      <li>{item.task}</li>
-                      <i 
-                        onClick={() => props.deleteFromList(item)} 
-                        className="delete far fa-trash-alt" 
-                      
-                      ></i>
-                    </div> : null )
+                  !item.complete ? <Todo item={item} index={index}/> : null 
+                )
                 case "COMPLETE": return (
-                  item.complete ?
-                    <div key={index}>
-                      <i onClick={() => props.changeTodoStatus(item)} className="far fa-check-circle status-icon-done"></i> 
-                      <li>{item.task}</li>
-                      <i 
-                        onClick={() => props.deleteFromList(item)} 
-                        className="delete far fa-trash-alt" 
-                      
-                      ></i>
-                    </div> : null )
+                  item.complete ? <Todo item={item} index={index}/> : null 
+                )
+                default:
+                  return null
               }
             }
         )}
         {/* have another li element be the disappearing input box, depending on plus button being pressed */}
+        {toggleInput ? 
           <li className="row hover-and-input" key={props.todos.length + 2}>
-            <div className="col d-flex justify-content-end">
+            <div className="col my-auto text-center">
               <i className="far fa-circle status-icon"></i>
             </div>
-            <div className="col-7">
+            <div className="col-9">
               <form onSubmit={submit}>
-                <input className="input" type="text" placeholder="Enter task" onChange={handleSubmit} value={text} />
+                <input className="input" type="text" placeholder="Enter task here" onChange={handleSubmit} value={text} />
                 <button className="submit" type="submit"><i className="fas fa-file-medical"></i></button>
               </form>
             </div>
             <div className="col"></div>
-          </li>
+          </li> : null}
         </div>
         
       </ul>
-      
-      {/* <form onSubmit={submit}>
-        <input className="input" type="text" placeholder="Enter task" onChange={handleSubmit} value={text} />
-        <button type="submit"><i className="fas fa-file-medical"></i></button>
-      </form> */}
       
 {/* maybe use filter state as a way to check which color the filter tabs should be */}
       <div className="container fixed-bottom footer">
         <div className="row">
           <div className="col text-center my-auto">
-            <p className="filter-title" onClick={viewAll}>All</p>
+            {styleAll()}  
           </div>
           <div className="col text-center my-auto">
-            <p className="filter-title" onClick={viewActive}>Active</p>  
+            {styleAct()}
           </div>
           <div className="col text-center my-auto">
-            <p className="filter-title" onClick={viewComplete}>Completed</p>
+            {styleComplete()}
           </div>
           <div className="col text-center">
-            <img src={plus} />
+            {filter === "COMPLETE" ?
+              <img src={disabled} alt="disabled button"/> :
+              <img onClick={() => setToggleInput(!toggleInput)} src={plus} alt="add button"/>}
           </div>
         </div>
         
