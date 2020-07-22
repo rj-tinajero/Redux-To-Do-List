@@ -1,23 +1,24 @@
 {
   "files": {
-    "main.css": "/Redux-To-Do-List/static/css/main.68194008.chunk.css",
-    "main.js": "/Redux-To-Do-List/static/js/main.543f6f01.chunk.js",
-    "main.js.map": "/Redux-To-Do-List/static/js/main.543f6f01.chunk.js.map",
+    "main.css": "/Redux-To-Do-List/static/css/main.4a280ae6.chunk.css",
+    "main.js": "/Redux-To-Do-List/static/js/main.4f2a0dcc.chunk.js",
+    "main.js.map": "/Redux-To-Do-List/static/js/main.4f2a0dcc.chunk.js.map",
     "runtime-main.js": "/Redux-To-Do-List/static/js/runtime-main.86dd297a.js",
     "runtime-main.js.map": "/Redux-To-Do-List/static/js/runtime-main.86dd297a.js.map",
-    "static/js/2.412afca3.chunk.js": "/Redux-To-Do-List/static/js/2.412afca3.chunk.js",
-    "static/js/2.412afca3.chunk.js.map": "/Redux-To-Do-List/static/js/2.412afca3.chunk.js.map",
+    "static/js/2.098a42b6.chunk.js": "/Redux-To-Do-List/static/js/2.098a42b6.chunk.js",
+    "static/js/2.098a42b6.chunk.js.map": "/Redux-To-Do-List/static/js/2.098a42b6.chunk.js.map",
     "index.html": "/Redux-To-Do-List/index.html",
-    "precache-manifest.8a071b7c74facb8f115f6c240c85e7d6.js": "/Redux-To-Do-List/precache-manifest.8a071b7c74facb8f115f6c240c85e7d6.js",
+    "precache-manifest.0e6d2368a8975db4531f04995dc29ef2.js": "/Redux-To-Do-List/precache-manifest.0e6d2368a8975db4531f04995dc29ef2.js",
     "service-worker.js": "/Redux-To-Do-List/service-worker.js",
-    "static/css/main.68194008.chunk.css.map": "/Redux-To-Do-List/static/css/main.68194008.chunk.css.map",
-    "static/js/2.412afca3.chunk.js.LICENSE.txt": "/Redux-To-Do-List/static/js/2.412afca3.chunk.js.LICENSE.txt",
-    "static/media/Ellipse 1.svg": "/Redux-To-Do-List/static/media/Ellipse 1.03a3562d.svg"
+    "static/css/main.4a280ae6.chunk.css.map": "/Redux-To-Do-List/static/css/main.4a280ae6.chunk.css.map",
+    "static/js/2.098a42b6.chunk.js.LICENSE.txt": "/Redux-To-Do-List/static/js/2.098a42b6.chunk.js.LICENSE.txt",
+    "static/media/Ellipse 1.svg": "/Redux-To-Do-List/static/media/Ellipse 1.03a3562d.svg",
+    "static/media/Ellipse 2.svg": "/Redux-To-Do-List/static/media/Ellipse 2.56f5741a.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.86dd297a.js",
-    "static/js/2.412afca3.chunk.js",
-    "static/css/main.68194008.chunk.css",
-    "static/js/main.543f6f01.chunk.js"
+    "static/js/2.098a42b6.chunk.js",
+    "static/css/main.4a280ae6.chunk.css",
+    "static/js/main.4f2a0dcc.chunk.js"
   ]
 }
