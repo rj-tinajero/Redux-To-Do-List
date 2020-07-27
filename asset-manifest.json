@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/Redux-To-Do-List/static/css/main.4a280ae6.chunk.css",
-    "main.js": "/Redux-To-Do-List/static/js/main.4f2a0dcc.chunk.js",
-    "main.js.map": "/Redux-To-Do-List/static/js/main.4f2a0dcc.chunk.js.map",
+    "main.css": "/Redux-To-Do-List/static/css/main.b2a63154.chunk.css",
+    "main.js": "/Redux-To-Do-List/static/js/main.f628e7a4.chunk.js",
+    "main.js.map": "/Redux-To-Do-List/static/js/main.f628e7a4.chunk.js.map",
     "runtime-main.js": "/Redux-To-Do-List/static/js/runtime-main.86dd297a.js",
     "runtime-main.js.map": "/Redux-To-Do-List/static/js/runtime-main.86dd297a.js.map",
-    "static/js/2.098a42b6.chunk.js": "/Redux-To-Do-List/static/js/2.098a42b6.chunk.js",
-    "static/js/2.098a42b6.chunk.js.map": "/Redux-To-Do-List/static/js/2.098a42b6.chunk.js.map",
+    "static/js/2.9d6e1c5e.chunk.js": "/Redux-To-Do-List/static/js/2.9d6e1c5e.chunk.js",
+    "static/js/2.9d6e1c5e.chunk.js.map": "/Redux-To-Do-List/static/js/2.9d6e1c5e.chunk.js.map",
     "index.html": "/Redux-To-Do-List/index.html",
-    "precache-manifest.0e6d2368a8975db4531f04995dc29ef2.js": "/Redux-To-Do-List/precache-manifest.0e6d2368a8975db4531f04995dc29ef2.js",
+    "precache-manifest.811688efebd43aa2683fbb88da86c874.js": "/Redux-To-Do-List/precache-manifest.811688efebd43aa2683fbb88da86c874.js",
     "service-worker.js": "/Redux-To-Do-List/service-worker.js",
-    "static/css/main.4a280ae6.chunk.css.map": "/Redux-To-Do-List/static/css/main.4a280ae6.chunk.css.map",
-    "static/js/2.098a42b6.chunk.js.LICENSE.txt": "/Redux-To-Do-List/static/js/2.098a42b6.chunk.js.LICENSE.txt",
+    "static/css/main.b2a63154.chunk.css.map": "/Redux-To-Do-List/static/css/main.b2a63154.chunk.css.map",
+    "static/js/2.9d6e1c5e.chunk.js.LICENSE.txt": "/Redux-To-Do-List/static/js/2.9d6e1c5e.chunk.js.LICENSE.txt",
     "static/media/Ellipse 1.svg": "/Redux-To-Do-List/static/media/Ellipse 1.03a3562d.svg",
     "static/media/Ellipse 2.svg": "/Redux-To-Do-List/static/media/Ellipse 2.56f5741a.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.86dd297a.js",
-    "static/js/2.098a42b6.chunk.js",
-    "static/css/main.4a280ae6.chunk.css",
-    "static/js/main.4f2a0dcc.chunk.js"
+    "static/js/2.9d6e1c5e.chunk.js",
+    "static/css/main.b2a63154.chunk.css",
+    "static/js/main.f628e7a4.chunk.js"
   ]
 }
