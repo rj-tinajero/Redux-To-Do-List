@@ -63,7 +63,13 @@ function App(props){
 
   return(
     <div className="App-header">
-      <h1 className="title">Tasks</h1>
+      <div className="container">
+        <div className="row">
+          <div className="col-4 text-center"><h1 className="title">Tasks</h1></div>
+          <div className="col-4"></div>
+          <div className="col-4"></div>
+        </div>
+      </div>
       <ul>
         <div className="container list">
         {props.todos.length < 1 ? <div><p>Add some tasks below!! :D</p></div> : 
@@ -87,31 +93,30 @@ function App(props){
         {/* have another li element be the disappearing input box, depending on plus button being pressed */}
         {toggleInput ? 
           <li className="row hover-and-input" key={props.todos.length + 2}>
-            <div className="col my-auto text-center">
-              <i className="far fa-circle status-icon"></i>
+            <div className="col my-auto mx-auto">
+              <i className="far fa-circle fa-sm status-icon"></i>
             </div>
-            <div className="col-9">
+            <div className="col-9 mx-auto">
               <form onSubmit={submit}>
-                <input className="input" type="text" placeholder="Enter task here" onChange={handleSubmit} value={text} />
+                <input className="input" type="text" placeholder="Enter task" onChange={handleSubmit} value={text} />
                 <button className="submit" type="submit"><i className="fas fa-file-medical"></i></button>
               </form>
             </div>
-            <div className="col"></div>
+            <div className="col mx-auto"></div>
           </li> : null}
         </div>
-        
       </ul>
       
 {/* maybe use filter state as a way to check which color the filter tabs should be */}
       <div className="container fixed-bottom footer">
         <div className="row">
-          <div className="col text-center my-auto">
+          <div className="col text-center my-auto mx-auto">
             {styleAll()}  
           </div>
-          <div className="col text-center my-auto">
+          <div className="col text-center my-auto mx-auto">
             {styleAct()}
           </div>
-          <div className="col text-center my-auto">
+          <div className="col text-center my-auto mx-auto">
             {styleComplete()}
           </div>
           <div className="col text-center">
@@ -120,9 +125,7 @@ function App(props){
               <img onClick={() => setToggleInput(!toggleInput)} src={plus} alt="add button"/>}
           </div>
         </div>
-        
       </div>
-
     </div>
   )
 }
@@ -133,6 +136,5 @@ const mapStateToProps = (state /*, ownProps*/) => {
   }
 }
 const mapDispatchToProps = { addTodo, changeTodoStatus, deleteFromList }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
