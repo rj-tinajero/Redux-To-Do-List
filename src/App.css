@@ -1,3 +1,30 @@
+body {
+	background: #FACD60;
+}
+
+#wrapper {
+	/* let's get this centered! */
+	/* https://medium.com/front-end-weekly/absolute-centering-in-css-ea3a9d0ad72e*/
+	display: flex;
+  	min-height: 100vh;
+}
+
+#iphone {
+	background: #333;
+	padding: 10px;
+	border-radius: 32px;
+	width: 375px;
+	height: 812px;
+	/* let's get this centered! */
+	margin: auto;
+}
+
+iframe {
+	border: none;
+	border-radius: 22px;
+}
+
+
 .App {
   text-align: center;
 }
@@ -81,6 +108,11 @@ li {
 }
 
 li:hover {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+}
+
+.intro {
   background-color: #FFFFFF;
   border-radius: 10px;
 }

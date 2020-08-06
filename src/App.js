@@ -72,7 +72,17 @@ function App(props){
       </div>
       <ul>
         <div className="container list">
-        {props.todos.length < 1 ? <div><p>Add some tasks below!! :D</p></div> : 
+        {props.todos.length < 1 ? 
+          <li className="row intro">
+            <div className="col mx-auto intro-p">
+              <i className="far fa-circle fa-sm status-icon" hidden></i>
+            </div>
+            <div className="col-9 mt-2 task mx-auto">
+              <p>Welcome! Feel free to populate some to-do's here. Everything will be saved locally in your browser!</p>
+              <p>Start by pressing the plus button bellow.</p>
+            </div>
+            <div className="col mx-auto"></div>  
+          </li> : 
           props.todos.map((item, index) => 
             {
               switch(filter) {
@@ -89,7 +99,8 @@ function App(props){
                   return null
               }
             }
-        )}
+          )
+        }
         {/* have another li element be the disappearing input box, depending on plus button being pressed */}
         {toggleInput ? 
           <li className="row hover-and-input" key={props.todos.length + 2}>
