@@ -62,16 +62,22 @@ iframe {
 }
 
 .list {
-  padding-right: 60px;
+  padding-right: 35px;
 }
 
 .status-icon {
-  padding-top: 5px
+  padding-top: 5px;
+  cursor: pointer;
 }
 
 .status-icon-done {
   padding-top: 5px;
   color: #FCA311;
+  cursor: pointer;
+}
+
+.delete {
+  cursor: pointer;
 }
 
 .done-task {
@@ -96,6 +102,7 @@ iframe {
   line-height: 140%;
   color: #FCA311;
   padding-top: 25px;
+  padding-left: 10px;
 }
 
 li {
@@ -110,6 +117,10 @@ li {
 li:hover {
   background-color: #FFFFFF;
   border-radius: 10px;
+}
+
+ul {
+  padding-inline-start: 17px;
 }
 
 .intro {
@@ -127,10 +138,16 @@ p {
 
 img {
   padding-bottom: 15px;
+  cursor: pointer;
+}
+
+.disabled {
+  cursor: default;
 }
 
 .task {
-  margin-right: 0px
+  margin-right: 0px;
+  cursor: default;
 }
 
 .input {
@@ -161,11 +178,13 @@ img {
 .filter-title {
   color: #CCCCCC;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .filter-title-clicked {
   color: #FCA311;
-  font-size: 16px
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .footer {

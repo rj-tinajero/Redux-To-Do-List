@@ -23,7 +23,7 @@ function Todo(props) {
                className="far fa-circle fa-sm status-icon"></i>}
          </div>
 
-         <div className="col-9 mt-3 task mx-auto">
+         <div className="col-8 mt-3 task mx-auto">
             {item.complete ? <p className="done-task">{item.task}</p> : <p>{item.task}</p>}
          </div>
          

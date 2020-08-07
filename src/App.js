@@ -107,7 +107,7 @@ function App(props){
             <div className="col my-auto mx-auto">
               <i className="far fa-circle fa-sm status-icon"></i>
             </div>
-            <div className="col-9 mx-auto">
+            <div className="col-8 mx-auto">
               <form onSubmit={submit}>
                 <input className="input" type="text" placeholder="Enter task" onChange={handleSubmit} value={text} />
                 <button className="submit" type="submit"><i className="fas fa-file-medical"></i></button>
@@ -132,7 +132,7 @@ function App(props){
           </div>
           <div className="col text-center">
             {filter === "COMPLETE" ?
-              <img src={disabled} alt="disabled button"/> :
+              <img className="disabled" src={disabled} alt="disabled button"/> :
               <img onClick={() => setToggleInput(!toggleInput)} src={plus} alt="add button"/>}
           </div>
         </div>
